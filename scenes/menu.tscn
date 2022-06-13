@@ -1,0 +1,178 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://scripts/jogar.gd" type="Script" id=1]
+[ext_resource path="res://assets/caxa1.svg" type="Texture" id=2]
+[ext_resource path="res://scripts/sair.gd" type="Script" id=3]
+[ext_resource path="res://assets/backgroundmenu.jpg" type="Texture" id=4]
+[ext_resource path="res://assets/button.svg" type="Texture" id=5]
+[ext_resource path="res://assets/caxa2.svg" type="Texture" id=6]
+[ext_resource path="res://assets/caxa3.svg" type="Texture" id=7]
+[ext_resource path="res://assets/animationMenu/praia6.png" type="Texture" id=8]
+[ext_resource path="res://assets/animationMenu/praia5.png" type="Texture" id=9]
+[ext_resource path="res://assets/animationMenu/praia3.png" type="Texture" id=10]
+[ext_resource path="res://assets/animationMenu/praia2.png" type="Texture" id=11]
+[ext_resource path="res://assets/animationMenu/praia1.png" type="Texture" id=12]
+[ext_resource path="res://assets/animationMenu/praia4.png" type="Texture" id=13]
+[ext_resource path="res://assets/Música Do Game/LobbyGame-GameJam.BY-Miqueias.wav" type="AudioStream" id=14]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+func _ready():
+	$ViewportContainer/AnimatedSprite.play(\"pria\")
+	$AudioStreamPlayer2D.play()
+
+
+"
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "praia",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "btn",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://assets/SigmarOne-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 4 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "btn",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://assets/SigmarOne-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 22
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 7 )
+
+[node name="menu" type="Node2D"]
+position = Vector2( 632, 336 )
+script = SubResource( 1 )
+
+[node name="ViewportContainer" type="TextureRect" parent="."]
+margin_left = -632.0
+margin_top = -336.0
+margin_right = 648.0
+margin_bottom = 384.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ViewportContainer"]
+position = Vector2( -1.63623, -17.3376 )
+scale = Vector2( 0.426667, 0.26963 )
+frames = SubResource( 2 )
+animation = "praia"
+frame = 3
+playing = true
+centered = false
+flip_v = true
+
+[node name="jogar" type="Button" parent="."]
+margin_left = -128.0
+margin_top = -125.0
+margin_right = 113.0
+margin_bottom = -80.0
+flat = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="jogar"]
+position = Vector2( 120, 32 )
+scale = Vector2( 0.458333, 0.458333 )
+texture = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="jogar"]
+visible = false
+position = Vector2( 120, 64 )
+scale = Vector2( 0.458, 0.458 )
+frames = SubResource( 3 )
+animation = "btn"
+
+[node name="Label" type="Label" parent="jogar"]
+margin_right = 240.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 5 )
+text = "JOGAR"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sair" type="Button" parent="."]
+margin_left = -128.0
+margin_top = 59.0
+margin_right = 112.0
+margin_bottom = 104.0
+flat = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="sair"]
+position = Vector2( 120, 32 )
+scale = Vector2( 0.457143, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="sair"]
+visible = false
+position = Vector2( 120, 64 )
+scale = Vector2( 0.452941, 0.452941 )
+frames = SubResource( 6 )
+animation = "btn"
+
+[node name="Label" type="Label" parent="sair"]
+margin_right = 240.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 8 )
+text = "SAIR"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2( 0.5, 0.5 )
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+autoplay = true
+
+[connection signal="mouse_entered" from="jogar" to="jogar" method="_on_jogar_mouse_entered"]
+[connection signal="mouse_exited" from="jogar" to="jogar" method="_on_jogar_mouse_exited"]
+[connection signal="pressed" from="jogar" to="jogar" method="_on_jogar_pressed"]
+[connection signal="mouse_entered" from="sair" to="sair" method="_on_sair_mouse_entered"]
+[connection signal="mouse_exited" from="sair" to="sair" method="_on_sair_mouse_exited"]
+[connection signal="pressed" from="sair" to="sair" method="_on_sair_pressed"]
