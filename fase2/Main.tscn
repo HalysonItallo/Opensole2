@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://assets/Personagem/mergupomba2.png" type="Texture" id=1]
 [ext_resource path="res://tile_set/TileMaps.tres" type="TileSet" id=2]
@@ -40,8 +40,6 @@
 [ext_resource path="res://assets/caxa3.svg" type="Texture" id=38]
 [ext_resource path="res://assets/caxa2.svg" type="Texture" id=39]
 [ext_resource path="res://assets/button.svg" type="Texture" id=40]
-[ext_resource path="res://scripts/switchScene.gd" type="Script" id=41]
-[ext_resource path="res://fase2/Main.tscn" type="PackedScene" id=42]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -231,10 +229,7 @@ radius = 224.727
 [sub_resource type="CircleShape2D" id=35]
 radius = 264.976
 
-[sub_resource type="RectangleShape2D" id=36]
-extents = Vector2( 10, 43.5 )
-
-[node name="Main" type="Node2D"]
+[node name="fase2" type="Node2D"]
 script = ExtResource( 5 )
 
 [node name="Front" type="TileMap" parent="."]
@@ -305,7 +300,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "anim_tubarao"
-frame = 10
+frame = 6
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/rigid_tubararo"]
@@ -332,7 +327,7 @@ shape = SubResource( 8 )
 position = Vector2( 460.67, 73.0578 )
 frames = SubResource( 9 )
 animation = "peixe-palhaço"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/peixe-palhaço"]
@@ -358,6 +353,7 @@ shape = SubResource( 8 )
 position = Vector2( 460.67, 73.0578 )
 frames = SubResource( 9 )
 animation = "peixe-palhaço"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/peixe-palhaço2"]
@@ -384,7 +380,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "anim_tubarao"
-frame = 9
+frame = 5
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/rigid_tubararo2"]
@@ -407,7 +403,7 @@ scale = Vector2( 0.2, 0.2 )
 z_index = 1
 frames = SubResource( 13 )
 animation = "anim_pers"
-frame = 1
+frame = 2
 playing = true
 
 [node name="collision_personagem" type="CollisionShape2D" parent="cesta2/personagem"]
@@ -417,6 +413,7 @@ shape = SubResource( 14 )
 
 [node name="camera_pers" type="Camera2D" parent="cesta2/personagem"]
 position = Vector2( 427.685, 166.562 )
+current = true
 zoom = Vector2( 1.15, 1.15 )
 limit_left = 0
 limit_top = 0
@@ -516,6 +513,7 @@ scale = Vector2( 0.2, 0.2 )
 z_index = 4
 frames = SubResource( 15 )
 animation = "anim_oleo"
+frame = 2
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite"]
@@ -534,7 +532,7 @@ shape = SubResource( 17 )
 position = Vector2( 2309.14, 777.101 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 18 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite2"]
@@ -599,14 +597,6 @@ shape = SubResource( 34 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="oleo/AnimatedSprite5/oleo5"]
 position = Vector2( -8.98047, -5.9874 )
 shape = SubResource( 35 )
-
-[node name="switchScene" type="Area2D" parent="."]
-script = ExtResource( 41 )
-target_scene = ExtResource( 42 )
-
-[node name="portal" type="CollisionShape2D" parent="switchScene"]
-position = Vector2( 356, 332.5 )
-shape = SubResource( 36 )
 
 [connection signal="body_entered" from="animals2/rigid_tubararo/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="animals2/peixe-palhaço/Area2D" to="." method="_on_Area2D_body_entered"]
