@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://player/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/Personagem/mergupomba2.png" type="Texture" id=2]
+[ext_resource path="res://assets/Personagem/mergupomba1.png" type="Texture" id=3]
+[ext_resource path="res://assets/Personagem/mergupomba4.png" type="Texture" id=4]
+[ext_resource path="res://assets/Personagem/mergupomba5.png" type="Texture" id=5]
+[ext_resource path="res://assets/Personagem/mergupomba3.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "anim_pers",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 40.0
+height = 131.932
+
+[node name="Node2D" type="Node2D"]
+
+[node name="personagem" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="spr_personagem" type="AnimatedSprite" parent="personagem"]
+position = Vector2( 95.26, 57.1784 )
+scale = Vector2( 0.2, 0.2 )
+z_index = 1
+frames = SubResource( 1 )
+animation = "anim_pers"
+playing = true
+
+[node name="collision_personagem" type="CollisionShape2D" parent="personagem"]
+position = Vector2( 95.26, 73.1784 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="camera_pers" type="Camera2D" parent="personagem"]
+position = Vector2( 427.685, 300 )
+current = true
+zoom = Vector2( 1.15, 1.15 )
+limit_left = 0
+limit_top = 0
+limit_right = 6128
+limit_bottom = 720
