@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://assets/Personagem/mergupomba2.png" type="Texture" id=1]
 [ext_resource path="res://tile_set/TileMaps.tres" type="TileSet" id=2]
@@ -41,27 +41,29 @@
 [ext_resource path="res://assets/caxa2.svg" type="Texture" id=39]
 [ext_resource path="res://assets/button.svg" type="Texture" id=40]
 [ext_resource path="res://mobile control/Control.tscn" type="PackedScene" id=41]
+[ext_resource path="res://stages/portal3.gd" type="Script" id=42]
+[ext_resource path="res://assets/objetos oceano/PNG/Neutral/Bubble_3.png" type="Texture" id=43]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "4",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "1",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "4",
 "speed": 5.0
 } ]
 
@@ -230,6 +232,9 @@ radius = 223.529
 [sub_resource type="CircleShape2D" id=32]
 radius = 256.558
 
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 20.5, 22.375 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -297,6 +302,7 @@ shape = SubResource( 8 )
 position = Vector2( 460.67, 73.0578 )
 frames = SubResource( 9 )
 animation = "peixe-palhaço"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/peixe-palhaço"]
@@ -323,7 +329,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "anim_tubarao"
-frame = 6
+frame = 11
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/rigid_tubararo"]
@@ -350,6 +356,7 @@ shape = SubResource( 8 )
 position = Vector2( 460.67, 73.0578 )
 frames = SubResource( 9 )
 animation = "peixe-palhaço"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/peixe-palhaço2"]
@@ -376,7 +383,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "anim_tubarao"
-frame = 5
+frame = 10
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/rigid_tubararo2"]
@@ -399,7 +406,7 @@ scale = Vector2( 0.2, 0.2 )
 z_index = 1
 frames = SubResource( 13 )
 animation = "anim_pers"
-frame = 4
+frame = 2
 playing = true
 
 [node name="collision_personagem" type="CollisionShape2D" parent="cesta2/personagem"]
@@ -427,6 +434,9 @@ margin_top = -0.773804
 margin_right = 1288.62
 margin_bottom = 719.226
 script = ExtResource( 36 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="pause" type="Node2D" parent="cesta2/CanvasLayer/pause/Control"]
 
@@ -506,7 +516,7 @@ scale = Vector2( 0.2, 0.2 )
 z_index = 4
 frames = SubResource( 15 )
 animation = "anim_oleo"
-frame = 2
+frame = 1
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite"]
@@ -542,7 +552,6 @@ shape = SubResource( 35 )
 position = Vector2( 3250, 130 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 18 )
-frame = 1
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite2"]
@@ -592,6 +601,19 @@ position = Vector2( -22.0518, 7.35095 )
 shape = SubResource( 32 )
 
 [node name="Control" parent="." instance=ExtResource( 41 )]
+
+[node name="portal3" type="Area2D" parent="."]
+position = Vector2( 6091, 98 )
+script = ExtResource( 42 )
+
+[node name="switchScene3" type="CollisionShape2D" parent="portal3"]
+position = Vector2( 3.75, 7.625 )
+shape = SubResource( 36 )
+
+[node name="Sprite" type="Sprite" parent="portal3"]
+position = Vector2( 5.25, 8.25 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 43 )
 
 [connection signal="body_entered" from="animals2/peixe-palhaço/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="animals2/rigid_tubararo/Area2D" to="." method="_on_Area2D_body_entered"]

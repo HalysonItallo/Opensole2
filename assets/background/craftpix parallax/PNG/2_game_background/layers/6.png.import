@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/6.png-b0a3e74b617a477a828bbb7c449f1bd7.stex"
+path="res://.import/6.png-c3d3f7399af28f52c0d5458da36842ac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/craftpix/PNG/2_game_background/layers/6.png"
-dest_files=[ "res://.import/6.png-b0a3e74b617a477a828bbb7c449f1bd7.stex" ]
+source_file="res://assets/background/craftpix parallax/PNG/2_game_background/layers/6.png"
+dest_files=[ "res://.import/6.png-c3d3f7399af28f52c0d5458da36842ac.stex" ]
 
 [params]
 

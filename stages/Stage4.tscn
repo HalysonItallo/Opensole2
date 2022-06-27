@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tile_set/TileMaps.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/Vida/vida1.png" type="Texture" id=7]
 [ext_resource path="res://assets/Vida/vida2.png" type="Texture" id=8]
 [ext_resource path="res://assets/Vida/vida3.png" type="Texture" id=9]
+[ext_resource path="res://stages/portal4.gd" type="Script" id=10]
 [ext_resource path="res://assets/Música Do Game/normalgame-GameJam2020.wav" type="AudioStream" id=11]
 [ext_resource path="res://assets/Música Do Game/UpLevel-GameJam2020.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/Animais/tubarao/Tubarao_jogo5.png" type="Texture" id=13]
@@ -27,6 +28,7 @@
 [ext_resource path="res://assets/Animais/peixe-palhaço/Peixes/peixa2.png" type="Texture" id=26]
 [ext_resource path="res://scripts/peixe-palhaço.gd" type="Script" id=27]
 [ext_resource path="res://scripts/rigid_tubararo.gd" type="Script" id=28]
+[ext_resource path="res://assets/objetos oceano/PNG/Neutral/Сhest_open.png" type="Texture" id=29]
 [ext_resource path="res://assets/oleo/oleo1.svg" type="Texture" id=33]
 [ext_resource path="res://assets/oleo/oleo.svg" type="Texture" id=34]
 [ext_resource path="res://assets/oleo/oleo2.svg" type="Texture" id=35]
@@ -34,24 +36,24 @@
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "4",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "1",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "4",
 "speed": 5.0
 } ]
 
@@ -174,6 +176,9 @@ radius = 223.529
 [sub_resource type="CircleShape2D" id=32]
 radius = 256.558
 
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 95.5, 64 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -241,6 +246,7 @@ shape = SubResource( 8 )
 position = Vector2( 460.67, 73.0578 )
 frames = SubResource( 9 )
 animation = "peixe-palhaço"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/peixe-palhaço"]
@@ -268,7 +274,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "anim_tubarao"
-frame = 6
+frame = 10
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/rigid_tubararo"]
@@ -295,6 +301,7 @@ shape = SubResource( 8 )
 position = Vector2( 460.67, 73.0578 )
 frames = SubResource( 9 )
 animation = "peixe-palhaço"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/peixe-palhaço2"]
@@ -320,7 +327,6 @@ shape = SubResource( 8 )
 position = Vector2( 460.67, 73.0578 )
 frames = SubResource( 9 )
 animation = "peixe-palhaço"
-frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/peixe-palhaço3"]
@@ -347,7 +353,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "anim_tubarao"
-frame = 5
+frame = 9
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/rigid_tubararo2"]
@@ -367,7 +373,6 @@ scale = Vector2( 0.2, 0.2 )
 z_index = 4
 frames = SubResource( 15 )
 animation = "anim_oleo"
-frame = 2
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite"]
@@ -403,7 +408,7 @@ shape = SubResource( 35 )
 position = Vector2( 3250, 260 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 18 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite2"]
@@ -453,6 +458,19 @@ position = Vector2( -22.0518, 7.35095 )
 shape = SubResource( 32 )
 
 [node name="Control" parent="." instance=ExtResource( 41 )]
+
+[node name="portal4" type="Area2D" parent="."]
+position = Vector2( 5934, 689 )
+script = ExtResource( 10 )
+
+[node name="switchScene4" type="CollisionShape2D" parent="portal4"]
+position = Vector2( -3, 2 )
+shape = SubResource( 36 )
+
+[node name="Sprite" type="Sprite" parent="portal4/switchScene4"]
+position = Vector2( 11, -5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 29 )
 
 [connection signal="body_entered" from="animals2/peixe-palhaço/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="animals2/rigid_tubararo/Area2D" to="." method="_on_Area2D_body_entered"]
