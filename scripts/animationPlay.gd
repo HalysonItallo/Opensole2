@@ -13,5 +13,6 @@ func _ready():
 
 
 func _on_AnimatedSprite_animation_finished():
+	Global.started = true
 	get_tree().change_scene("res://scenes/Main.tscn")
 	pass # Replace with function body.

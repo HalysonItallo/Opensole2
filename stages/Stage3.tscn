@@ -43,17 +43,18 @@
 [ext_resource path="res://mobile control/Control.tscn" type="PackedScene" id=41]
 [ext_resource path="res://stages/portal3.gd" type="Script" id=42]
 [ext_resource path="res://assets/objetos oceano/PNG/Neutral/Bubble_3.png" type="Texture" id=43]
+[ext_resource path="res://assets/Peixe leao/peixeleao.png" type="Texture" id=44]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -61,9 +62,9 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "1",
+"name": "3",
 "speed": 5.0
 } ]
 
@@ -218,14 +219,6 @@ radius = 226.094
 [sub_resource type="CircleShape2D" id=23]
 radius = 265.85
 
-[sub_resource type="SpriteFrames" id=30]
-animations = [ {
-"frames": [ ExtResource( 33 ), ExtResource( 35 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
 [sub_resource type="CircleShape2D" id=31]
 radius = 223.529
 
@@ -328,7 +321,6 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "anim_tubarao"
-frame = 4
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/rigid_tubararo"]
@@ -381,7 +373,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "anim_tubarao"
-frame = 3
+frame = 11
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/rigid_tubararo2"]
@@ -404,7 +396,6 @@ scale = Vector2( 0.2, 0.2 )
 z_index = 1
 frames = SubResource( 13 )
 animation = "anim_pers"
-frame = 3
 playing = true
 
 [node name="collision_personagem" type="CollisionShape2D" parent="cesta2/personagem"]
@@ -514,6 +505,7 @@ scale = Vector2( 0.2, 0.2 )
 z_index = 4
 frames = SubResource( 15 )
 animation = "anim_oleo"
+frame = 2
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite"]
@@ -549,7 +541,7 @@ shape = SubResource( 35 )
 position = Vector2( 3250, 130 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 18 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite2"]
@@ -581,10 +573,10 @@ shape = SubResource( 22 )
 position = Vector2( -17.6055, -6.60193 )
 shape = SubResource( 23 )
 
-[node name="AnimatedSprite4" type="AnimatedSprite" parent="oleo"]
+[node name="AnimatedSprite4" type="Sprite" parent="oleo"]
 position = Vector2( 5600, 300 )
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 30 )
+texture = ExtResource( 44 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite4"]
 

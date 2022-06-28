@@ -29,6 +29,7 @@
 [ext_resource path="res://scripts/peixe-palhaço.gd" type="Script" id=27]
 [ext_resource path="res://scripts/rigid_tubararo.gd" type="Script" id=28]
 [ext_resource path="res://assets/objetos oceano/PNG/Neutral/Сhest_open.png" type="Texture" id=29]
+[ext_resource path="res://assets/Peixe leao/peixeleao.png" type="Texture" id=30]
 [ext_resource path="res://assets/oleo/oleo1.svg" type="Texture" id=33]
 [ext_resource path="res://assets/oleo/oleo.svg" type="Texture" id=34]
 [ext_resource path="res://assets/oleo/oleo2.svg" type="Texture" id=35]
@@ -41,9 +42,9 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "3",
+"name": "4",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -51,9 +52,9 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "4",
+"name": "3",
 "speed": 5.0
 } ]
 
@@ -105,14 +106,6 @@ height = 43.2671
 [sub_resource type="CapsuleShape2D" id=12]
 radius = 78.4059
 height = 283.411
-
-[sub_resource type="SpriteFrames" id=15]
-animations = [ {
-"frames": [ ExtResource( 33 ), ExtResource( 35 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "anim_oleo",
-"speed": 5.0
-} ]
 
 [sub_resource type="CircleShape2D" id=16]
 radius = 202.186
@@ -246,7 +239,6 @@ shape = SubResource( 8 )
 position = Vector2( 460.67, 73.0578 )
 frames = SubResource( 9 )
 animation = "peixe-palhaço"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/peixe-palhaço"]
@@ -274,7 +266,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "anim_tubarao"
-frame = 10
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/rigid_tubararo"]
@@ -301,7 +293,6 @@ shape = SubResource( 8 )
 position = Vector2( 460.67, 73.0578 )
 frames = SubResource( 9 )
 animation = "peixe-palhaço"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/peixe-palhaço2"]
@@ -327,6 +318,7 @@ shape = SubResource( 8 )
 position = Vector2( 460.67, 73.0578 )
 frames = SubResource( 9 )
 animation = "peixe-palhaço"
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/peixe-palhaço3"]
@@ -353,7 +345,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "anim_tubarao"
-frame = 9
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="animals2/rigid_tubararo2"]
@@ -367,13 +359,11 @@ shape = SubResource( 12 )
 
 [node name="oleo" type="Node2D" parent="."]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="oleo"]
+[node name="AnimatedSprite" type="Sprite" parent="oleo"]
 position = Vector2( 2170, 400 )
 scale = Vector2( 0.2, 0.2 )
 z_index = 4
-frames = SubResource( 15 )
-animation = "anim_oleo"
-playing = true
+texture = ExtResource( 30 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite"]
 
@@ -408,7 +398,7 @@ shape = SubResource( 35 )
 position = Vector2( 3250, 260 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 18 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="oleo/AnimatedSprite2"]

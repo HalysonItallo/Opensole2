@@ -6,7 +6,6 @@ var auxoleo2 = -1
 var auxoleo3 = -1
 var auxoleo4 = -1
 var auxoleo5 = -1
-	
 
 func _on_Area2D_body_entered(body):
 	vidas -= 1
@@ -74,4 +73,3 @@ func _on_oleo5_body_entered(body):
 		$oleo/AnimatedSprite5.queue_free()
 		$AudioStreamPlayer2.play()
 		auxoleo5 = -1
-

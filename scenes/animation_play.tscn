@@ -37,4 +37,5 @@ script = ExtResource( 6 )
 frames = SubResource( 1 )
 animation = "onda"
 centered = false
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
