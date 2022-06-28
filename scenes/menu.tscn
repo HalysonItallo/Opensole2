@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/jogar.gd" type="Script" id=1]
 [ext_resource path="res://assets/caxa1.svg" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/animationMenu/praia1.png" type="Texture" id=12]
 [ext_resource path="res://assets/animationMenu/praia4.png" type="Texture" id=13]
 [ext_resource path="res://assets/Música Do Game/LobbyGame-GameJam.BY-Miqueias.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/logo/border logo finalpsd 1.png" type="Texture" id=15]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -86,16 +87,16 @@ position = Vector2( -1.63623, -17.3376 )
 scale = Vector2( 0.426667, 0.26963 )
 frames = SubResource( 2 )
 animation = "praia"
-frame = 4
+frame = 5
 playing = true
 centered = false
 flip_v = true
 
 [node name="jogar" type="Button" parent="."]
 margin_left = -128.0
-margin_top = -125.0
+margin_top = -36.0
 margin_right = 113.0
-margin_bottom = -80.0
+margin_bottom = 9.0
 flat = true
 script = ExtResource( 1 )
 __meta__ = {
@@ -169,6 +170,11 @@ limit_bottom = 720
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 autoplay = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -2.00003, -190 )
+scale = Vector2( 0.827759, 0.827759 )
+texture = ExtResource( 15 )
 
 [connection signal="mouse_entered" from="jogar" to="jogar" method="_on_jogar_mouse_entered"]
 [connection signal="mouse_exited" from="jogar" to="jogar" method="_on_jogar_mouse_exited"]
