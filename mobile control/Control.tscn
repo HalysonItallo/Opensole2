@@ -8,21 +8,25 @@
 [node name="Control" type="CanvasLayer"]
 
 [node name="Up" type="TouchScreenButton" parent="."]
-position = Vector2( 81, 575 )
+position = Vector2( 80, 480 )
+scale = Vector2( 2.5, 2.5 )
 normal = ExtResource( 1 )
 action = "ui_up"
 
 [node name="Down" type="TouchScreenButton" parent="."]
-position = Vector2( 81, 633 )
+position = Vector2( 81, 600 )
+scale = Vector2( 2.5, 2.5 )
 normal = ExtResource( 4 )
 action = "ui_down"
 
 [node name="Left" type="TouchScreenButton" parent="."]
-position = Vector2( 52, 605 )
+position = Vector2( 980, 605 )
+scale = Vector2( 2.5, 2.5 )
 normal = ExtResource( 2 )
 action = "ui_left"
 
 [node name="Right" type="TouchScreenButton" parent="."]
-position = Vector2( 112, 605 )
+position = Vector2( 1100, 605 )
+scale = Vector2( 2.5, 2.5 )
 normal = ExtResource( 3 )
 action = "ui_right"

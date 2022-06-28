@@ -86,6 +86,7 @@ position = Vector2( -1.63623, -17.3376 )
 scale = Vector2( 0.426667, 0.26963 )
 frames = SubResource( 2 )
 animation = "praia"
+frame = 4
 playing = true
 centered = false
 flip_v = true
